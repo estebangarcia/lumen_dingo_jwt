@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of jwt-auth.
  *
@@ -7,7 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 return [
+
     /*
     |--------------------------------------------------------------------------
     | JWT Authentication Secret
@@ -21,7 +24,9 @@ return [
     | since RSA and ECDSA use a private/public key combo (See below).
     |
     */
+
     'secret' => env('JWT_SECRET'),
+
     /*
     |--------------------------------------------------------------------------
     | JWT Authentication Keys
@@ -39,6 +44,47 @@ return [
     |
     */
 
+    'keys' => [
+
+        /*
+        |--------------------------------------------------------------------------
+        | Public Key
+        |--------------------------------------------------------------------------
+        |
+        | A path or resource to your public key.
+        |
+        | E.g. 'file://path/to/public/key'
+        |
+        */
+
+        'public' => env('JWT_PUBLIC_KEY'),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Private Key
+        |--------------------------------------------------------------------------
+        |
+        | A path or resource to your private key.
+        |
+        | E.g. 'file://path/to/private/key'
+        |
+        */
+
+        'private' => env('JWT_PRIVATE_KEY'),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Passphrase
+        |--------------------------------------------------------------------------
+        |
+        | The passphrase for your private key. Can be null if none set.
+        |
+        */
+
+        'passphrase' => env('JWT_PASSPHRASE'),
+
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | JWT time to live
@@ -53,7 +99,9 @@ return [
     | systems in place to revoke the token if necessary.
     |
     */
+
     'ttl' => env('JWT_TTL', null),
+
     /*
     |--------------------------------------------------------------------------
     | Refresh time to live
@@ -70,7 +118,9 @@ return [
     | systems in place to revoke the token if necessary.
     |
     */
+
     'refresh_ttl' => env('JWT_REFRESH_TTL', 20160),
+
     /*
     |--------------------------------------------------------------------------
     | JWT hashing algorithm
@@ -82,7 +132,9 @@ return [
     | for possible values.
     |
     */
+
     'algo' => env('JWT_ALGO', 'HS256'),
+
     /*
     |--------------------------------------------------------------------------
     | Required Claims
@@ -93,7 +145,9 @@ return [
     | present in the payload.
     |
     */
-    'required_claims' => ['iss', 'iat', 'exp', 'nbf', 'sub', 'jti'],
+
+    'required_claims' => ['iss', 'iat', 'nbf', 'sub', 'jti'],
+
     /*
     |--------------------------------------------------------------------------
     | Blacklist Enabled
@@ -103,7 +157,9 @@ return [
     | If you do not want or need this functionality, then set this to false.
     |
     */
+
     'blacklist_enabled' => env('JWT_BLACKLIST_ENABLED', true),
+
     /*
     | -------------------------------------------------------------------------
     | Blacklist Grace Period
@@ -116,7 +172,9 @@ return [
     | Set grace period in seconds to prevent parallel request failure.
     |
     */
+
     'blacklist_grace_period' => env('JWT_BLACKLIST_GRACE_PERIOD', 0),
+
     /*
     |--------------------------------------------------------------------------
     | Providers
@@ -125,8 +183,9 @@ return [
     | Specify the various providers used throughout the package.
     |
     */
+
     'providers' => [
-        'user' => \App\Api\V1\Models\User::class,
+
         /*
         |--------------------------------------------------------------------------
         | JWT Provider
@@ -135,7 +194,9 @@ return [
         | Specify the provider that is used to create and decode the tokens.
         |
         */
+
         'jwt' => Tymon\JWTAuth\Providers\JWT\Namshi::class,
+
         /*
         |--------------------------------------------------------------------------
         | Authentication Provider
@@ -144,7 +205,9 @@ return [
         | Specify the provider that is used to authenticate users.
         |
         */
+
         'auth' => Tymon\JWTAuth\Providers\Auth\Illuminate::class,
+
         /*
         |--------------------------------------------------------------------------
         | Storage Provider
@@ -153,6 +216,9 @@ return [
         | Specify the provider that is used to store tokens in the blacklist.
         |
         */
+
         'storage' => Tymon\JWTAuth\Providers\Storage\Illuminate::class,
+
     ],
+
 ];

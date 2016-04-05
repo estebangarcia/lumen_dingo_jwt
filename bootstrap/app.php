@@ -86,9 +86,9 @@ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 
-/*app('Dingo\Api\Auth\Auth')->extend('jwt', function ($app) {
+app('Dingo\Api\Auth\Auth')->extend('jwt', function ($app) {
     return new Dingo\Api\Auth\Provider\JWT($app['Tymon\JWTAuth\JWTAuth']);
-});*/
+});
 
 
 // $app->register(App\Providers\AuthServiceProvider::class);
